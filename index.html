@@ -1,0 +1,267 @@
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <meta name="theme-color" content="#fafafa">
+  <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <p>In my dimension we don't have a word for...</p>
+      <button class="button-30">Jump</button>
+    </header>
+    <main x-data="{myForData: sourceData}">
+
+      <template x-for="item in myForData" :key="item">
+      <section class="card">
+        <H1 x-text="item.card_name"></H1>  
+        <p x-text="item.card_description"></p>
+        <ol>
+          <li x-text="item.card_entry_1"></li>
+          <li x-text="item.card_entry_2"></li>
+          <li x-text="item.card_entry_3"></li>
+          <li x-text="item.card_entry_4"></li>
+          <li x-text="item.card_entry_5"></li>
+          <li x-text="item.card_entry_6"></li>
+        </ol>
+      </section>
+      </template>
+    </main>
+  </div>
+
+  <script>
+    var sourceData = [
+      {
+        id: "1",
+        card_name: "Earth 32",
+        card_description: "It's a grim world dystopia",
+        card_entry_1: "Laughing",
+        card_entry_2: "Smiling",
+        card_entry_3: "Voting",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "2",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "3",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "4",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "5",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "6",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "7",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "8",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "9",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "10",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "11",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "12",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "13",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "14",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "15",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "16",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "17",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+      {
+        id: "18",
+        card_name: "Tiger Nixon",
+        card_description: "Tiger Nixon",
+        card_entry_1: "Tiger Nixon",
+        card_entry_2: "Tiger Nixon",
+        card_entry_3: "Tiger Nixon",
+        card_entry_4: "Tiger Nixon",
+        card_entry_5: "Tiger Nixon",
+        card_entry_6: "Tiger Nixon",
+      },
+    ];
+  </script>
+  
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
