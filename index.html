@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Polska Górą!</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,231 +25,67 @@
 </head>
 
 <body>
-  <div class="container">
+  <div x-data="cardGame" class="container">
     <header>
-      <p>In my dimension we don't have a word for...</p>
-      <button class="button-30">Jump</button>
+      <template x-if="gameOver">
+        <div style="display: contents;">
+          <p>You have finished your journey!</p>
+          <button @click="restartGame()" class="button-30">Restart</button>
+        </div>
+      </template>
+      <template x-if="!gameOver">
+        <div style="display: contents;">
+          <p>In my dimension we don't have a word for...</p>
+          <p>Remaining cards: <span x-text="deck.length"></span></p>
+          <button @click="pickAnotherCard()" class="button-30">Jump</button>
+        </div>
+      </template>
     </header>
-    <main x-data="{myForData: sourceData}">
-
-      <template x-for="item in myForData" :key="item">
-      <section class="card">
-        <H1 x-text="item.card_name"></H1>  
-        <p x-text="item.card_description"></p>
-        <ol>
-          <li x-text="item.card_entry_1"></li>
-          <li x-text="item.card_entry_2"></li>
-          <li x-text="item.card_entry_3"></li>
-          <li x-text="item.card_entry_4"></li>
-          <li x-text="item.card_entry_5"></li>
-          <li x-text="item.card_entry_6"></li>
-        </ol>
-      </section>
+    <main>
+      <template x-if="!gameOver">
+        <section class="card">
+          <h1 x-text="currentCard.card_name"></h1>  
+          <p x-text="currentCard.card_description"></p>
+          <ol>
+            <template x-for="entry in currentCard.card_entries">
+              <li x-text="entry"></li>
+            </template>
+          </ol>
+        </section>
       </template>
     </main>
   </div>
 
   <script>
-    var sourceData = [
-      {
-        id: "1",
-        card_name: "Earth 32",
-        card_description: "It's a grim world dystopia",
-        card_entry_1: "Laughing",
-        card_entry_2: "Smiling",
-        card_entry_3: "Voting",
-        card_entry_4: "Tea Total",
-        card_entry_5: "Fireworks",
-        card_entry_6: "FWB",
-      },
-      {
-        id: "2",
-        card_name: "The old world",
-        card_description: "It's a world without world war one",
-        card_entry_1: "Pierogi",
-        card_entry_2: "Day light savings time",
-        card_entry_3: "Pilates",
-        card_entry_4: "Tea bags",
-        card_entry_5: "Sanitary pads",
-        card_entry_6: "Sun lamps",
-      },
-      {
-        id: "3",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "4",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "5",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "6",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "7",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "8",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "9",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "10",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "11",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "12",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "13",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "14",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "15",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "16",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "17",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-      {
-        id: "18",
-        card_name: "Tiger Nixon",
-        card_description: "Tiger Nixon",
-        card_entry_1: "Tiger Nixon",
-        card_entry_2: "Tiger Nixon",
-        card_entry_3: "Tiger Nixon",
-        card_entry_4: "Tiger Nixon",
-        card_entry_5: "Tiger Nixon",
-        card_entry_6: "Tiger Nixon",
-      },
-    ];
+    function randomNumber(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    }
+
+    var sourceData = JSON.parse(`[{"id":"1","card_name":"Earth 32","card_description":"It's a grim world dystopia","card_entries":["Laughing","Smiling","Voting","Tea Total","Fireworks","FWB"]},{"id":"2","card_name":"The old world","card_description":"It's a world without world war one","card_entries":["Pierogi","Day light savings time","Pilates","Tea bags","Sanitary pads","Sun lamps"]},{"id":"3","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"4","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"5","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"6","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"7","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"8","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"9","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"10","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"11","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"12","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"13","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"14","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"15","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"16","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"17","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"18","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]}]`)
+    var firstRandomCard = sourceData[randomNumber(0, sourceData.length - 1)]
+
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('cardGame', () => ({
+        deck: sourceData.filter((card) => card.id !== firstRandomCard.id),
+        currentCard: firstRandomCard,
+        gameOver: false,
+        pickAnotherCard() {
+          if (this.deck.length > 0) {
+            this.currentCard = this.deck[randomNumber(0, this.deck.length - 1)]
+            this.deck = this.deck.filter((card) => card.id !== this.currentCard.id)
+          } else {
+            this.gameOver = true;
+          }
+        },
+        restartGame() {
+          this.currentCard = sourceData[randomNumber(0, this.deck.length - 1)]
+          this.deck = sourceData.filter((card) => card.id !== this.currentCard.id)
+          this.gameOver = false;
+        }
+      }))
+    })
   </script>
   
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
