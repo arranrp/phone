@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <title>Polska Górą!</title>
@@ -35,11 +37,30 @@
       </template>
       <template x-if="!gameOver">
         <div style="display: contents;">
-          <p>In my dimension we don't have a word for...</p>
+          <p>In my dimension we don't have...</p>
           <p>Remaining cards: <span x-text="deck.length"></span></p>
           <button @click="pickAnotherCard()" class="button-30">Jump</button>
         </div>
       </template>
+      <div>
+        <p>You are a traveler from another earth in another dimesion. You've seen many strange things on your visit and you don't have words for them. How do you describe them to you friend from this strange new world.</p>
+        <p>On your turn you take a card on which there are six options to pick from you must choose one and try and describe it to your friend</p>
+        <p>a round could go as follows</p>
+        <p>Player one takes a card and picks the option <strong>beaver</strong></p>
+        <p>Player one:<q>It's an animal</q></p>
+        <p>Player two:<q>a dog?</q></p>
+        <p>Player one:<q>no, it likes to swim</q></p>
+        <p>Player two:<q>a fish?</q></p>
+        <p>Player one:<q>no, it has legs</q></p>
+        <p>Player two:<q>a octopus?</q></p>
+        <p>Player one:<q>no, it lives on land</q></p>
+        <p>Player two:<q>a penguin?</q></p>
+        <p>Player one:<q>no, it's furry</q></p>
+        <p>Player two:<q>an otter?</q></p>
+        <p>Player one:<q>no, it's fatter</q></p>
+        <p>Player two:<q>a beaver?</q></p>
+        <p>Player one:<q>Yes</q></p>
+      </div>
     </header>
     <main>
       <template x-if="!gameOver">
@@ -63,7 +84,137 @@
       return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
     }
 
-    var sourceData = JSON.parse(`[{"id":"1","card_name":"Earth 32","card_description":"It's a grim world dystopia","card_entries":["Laughing","Smiling","Voting","Tea Total","Fireworks","FWB"]},{"id":"2","card_name":"The old world","card_description":"It's a world without world war one","card_entries":["Pierogi","Day light savings time","Pilates","Tea bags","Sanitary pads","Sun lamps"]},{"id":"3","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"4","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"5","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"6","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"7","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"8","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"9","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"10","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"11","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"12","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"13","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"14","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"15","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"16","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"17","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]},{"id":"18","card_name":"Tiger Nixon","card_description":"Tiger Nixon","card_entries":["Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon","Tiger Nixon"]}]`)
+    var sourceData = JSON.parse(`[{
+	"id":"1",
+	"card_name":"Earth 32",
+	"card_description":"It's a grim world dystopia",
+	"card_entries":[
+		"Laughing",
+		"Smiling",
+		"Voting",
+		"Tea Total",
+		"Fireworks",
+		"FWB"
+	]
+},
+{
+	"id":"2",
+	"card_name":"The old world",
+	"card_description":"It's a world without world war one",
+	"card_entries":[
+		"Pierogi",
+		"Day light savings time",
+		"Pilates",
+		"Tea bags",
+		"Sanitary pads",
+		"Sun lamps"
+	]
+},
+{
+	"id":"3",
+	"card_name":"City1",
+	"card_description":"Mega city waste land",
+	"card_entries":[
+		"Honey",
+		"Egg cups",
+		"Ice cream",
+		"Bats",
+		"Armadillos",
+		"00000000"
+	]
+},
+{
+	"id":"4",
+	"card_name":"IO",
+	"card_description":"A utopia",
+	"card_entries":[
+		"Gerrymandering",
+		"War",
+		"Air craft carriers",
+		"Crying",
+		"Mansions",
+		"STI's"
+	]
+},
+{
+	"id":"5",
+	"card_name":"Nova France",
+	"card_description":"Off the coast of Normandy  lies nothing but atlantic ocean until you reach the Americas. The French empire unapposed in the early modern period grew to be a world spanning empire. With only one nation on earth the only remain wars were civil wars and thus there was no space race.",
+	"card_entries":[
+		"Corgies",
+		"Cheddar",
+		"Marmite",
+		"Pasty",
+		"Haggis",
+		"Cricket"
+	]
+},
+{
+	"id":"6",
+	"card_name":"The Land",
+	"card_description":"Tribal settlements grew, but never felt the need for conquest. Loose federations of towns formed and some sprawled into cities, but no countries ever emerged. Most nomadic communites have survived to this day as there has been no external presures on them.",
+	"card_entries":[
+		"citizens",
+		"borders",
+		"refugees",
+		"passports",
+		"welfare",
+		"genocide"
+	]
+},
+{
+	"id":"7",
+	"card_name":"The Steam Empire",
+	"card_description":"The sccret sociaty of Luddites in the early 1800s grew from stregth to stregth, eventualy having great power and influence in goverments of the world. Wide sweeping laws were created to hold back the tide of automation throughout the world, limiting all machines to require at least two humans to operate.",
+	"card_entries":[
+		"Cars",
+		"Artificial intelligence",
+		"Phones",
+		"The internet",
+		"Fax machines",
+		"Vibrators"
+	]
+},
+{
+	"id":"8",
+	"card_name":"The Cold",
+	"card_description":"The cold war has dragged on for generations. The worlds R&D has been focused on war and innovations stopped making it to the consumer in the 1980s",
+	"card_entries":[
+		"Uber",
+		"Instagram",
+		"WIFI",
+		"NFTs",
+		"000000",
+		"Netflix & chill"
+	]
+},
+{
+	"id":"9",
+	"card_name":"The shimmering",
+	"card_description":"This is a world of humans and halflings, elfs and orc. There even used to be dragons but they were hunted to extinction in the late 80s",
+	"card_entries":[
+		"Dungens and Dragons",
+		"Lord of the rings",
+		"World of War Craft",
+		"Game of throwns",
+		"Star wars",
+		""
+	]
+},
+{
+	"id":"10",
+	"card_name":"Card name",
+	"card_description":"Card description",
+	"card_entries":[
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+]`)
     var firstRandomCard = sourceData[randomNumber(0, sourceData.length - 1)]
 
     document.addEventListener('alpine:init', () => {
