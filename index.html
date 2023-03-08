@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Polska Górą!</title>
+  <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,10 +37,24 @@
       </template>
       <template x-if="!gameOver">
         <div style="display: contents;">
-          <p>In my dimension we don't have...</p>
+          <p>In my dimension we don't have are word for...</p>
           <p>Remaining cards: <span x-text="deck.length"></span></p>
           <button @click="pickAnotherCard()" class="button-30">Jump</button>
         </div>
+      </template>
+      
+    </header>
+    <main>
+      <template x-if="!gameOver">
+        <section class="card">
+          <h1 x-text="currentCard.card_name"></h1>  
+          <p x-text="currentCard.card_description"></p>
+          <ol>
+            <template x-for="entry in currentCard.card_entries">
+              <li x-text="entry"></li>
+            </template>
+          </ol>
+        </section>
       </template>
       <div>
         <p>You are a traveler from another earth in another dimesion. You've seen many strange things on your visit and you don't have words for them. How do you describe them to you friend from this strange new world.</p>
@@ -61,19 +75,6 @@
         <p>Player two:<q>a beaver?</q></p>
         <p>Player one:<q>Yes</q></p>
       </div>
-    </header>
-    <main>
-      <template x-if="!gameOver">
-        <section class="card">
-          <h1 x-text="currentCard.card_name"></h1>  
-          <p x-text="currentCard.card_description"></p>
-          <ol>
-            <template x-for="entry in currentCard.card_entries">
-              <li x-text="entry"></li>
-            </template>
-          </ol>
-        </section>
-      </template>
     </main>
   </div>
 
@@ -100,9 +101,9 @@
 {
 	"id":"2",
 	"card_name":"The old world",
-	"card_description":"It's a world without world war one",
+	"card_description":"In the early 20th century the Black Hand fail to ignite the tinderbox of europe and a world war never happens. Many nations fail to industralise and technology in not spured on by massive global wars.",
 	"card_entries":[
-		"Pierogi",
+		"Pierogi?",
 		"Day light savings time",
 		"Pilates",
 		"Tea bags",
@@ -203,7 +204,72 @@
 },
 {
 	"id":"10",
+	"card_name":"Earth Prime",
+	"card_description":"Ancient man look up at the all they saw was a ball that was bright and when it rain they just accepted today is wetter than yesterday. There was not mystry to be explained, it was just how the world was.",
+	"card_entries":[
+		"Marriage",
+		"Grave yards",
+		"Baptisms",
+		"Witch hunts",
+		"Christmas trees",
+		"Crussades"
+	]
+},
+{
+	"id":"11",
 	"card_name":"Card name",
+	"card_description":"No late stage capatalism",
+	"card_entries":[
+		"Deductibles",
+		"orthan crushing machine",
+		"Private prisions",
+		"Credit scores",
+		"Medical debt",
+		"card item"
+	]
+},
+{
+	"id":"12",
+	"card_name":"Card name",
+	"card_description":"No individulism",
+	"card_entries":[
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"13",
+	"card_name":"Card name",
+	"card_description":"prohabition puratanical",
+	"card_entries":[
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"14",
+	"card_name":"Card name",
+	"card_description":"no ozone/melted iccecaps",
+	"card_entries":[
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"15",
+	"card_name":"yeah without a summer",
 	"card_description":"Card description",
 	"card_entries":[
 		"card item",
@@ -212,6 +278,84 @@
 		"card item",
 		"card item",
 		"card item"
+	]
+},
+{
+	"id":"16",
+	"card_name":"the expanse - via space race pushing to mars early",
+	"card_description":"Card description",
+	"card_entries":[
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"17",
+	"card_name":"Card name",
+	"card_description":"no killing",
+	"card_entries":[
+		"Bacon",
+		"Hunting",
+		"Spear fishing",
+		"CSI: Miami",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"18",
+	"card_name":"Card name",
+	"card_description":"ghoats",
+	"card_entries":[
+		"privacy",
+		"murder",
+		"card item",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"19",
+	"card_name":"Card name",
+	"card_description":"people die young",
+	"card_entries":[
+		"pensions",
+		"care homes",
+		"retirement resorts",
+		"card item",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"20",
+	"card_name":"Card name",
+	"card_description":"The black death never ragenged the world, causing huge demographic shift. The fuedal system has stayed strong for hundreds of years.",
+	"card_entries":[
+		"Tourism",
+		"Elections",
+		"Renaissance",
+		"Reformation",
+		"card item",
+		"card item"
+	]
+},
+{
+	"id":"21",
+	"card_name":"Uncanny",
+	"card_description":"At first glance this could be earth, but it's just a little off.",
+	"card_entries":[
+		"Beards",
+		"000",
+		"000",
+		"000",
+		"000",
+		"000"
 	]
 }
 ]`)
