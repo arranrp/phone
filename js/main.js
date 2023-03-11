@@ -24,7 +24,7 @@ document.addEventListener('alpine:init', () => {
         this.isFetchingCards = true;
         this.fetchErrorOccurred = false;
 
-        const cards = await (await fetch('/cards.json')).json();
+        const cards = await (await fetch('./cards.json')).json();
 
         this.globalTally = cards.filter(
           ({ card_type }) => card_type === 'default'
