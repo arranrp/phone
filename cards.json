@@ -11,21 +11,21 @@
 			"Fireworks",
 			"FWB"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "2",
 		"card_name": "The old world",
 		"card_description": "In the early 20th century the Black Hand fail to ignite the tinderbox of europe and a world war never happens. Many nations fail to industralise and technology in not spured on by massive global wars.",
 		"card_entries": [
-			"Pierogi?",
+			"Pierogi",
 			"Day light savings time",
 			"Pilates",
 			"Tea bags",
 			"Sanitary pads",
 			"Sun lamps"
 		],
-		"card_type": "expansion_2"
+		"card_type": "default"
 	},
 	{
 		"id": "3",
@@ -37,9 +37,9 @@
 			"Ice cream",
 			"Bats",
 			"Armadillos",
-			"Trade"
+			"International trade"
 		],
-		"card_type": "expansion_2"
+		"card_type": "default"
 	},
 	{
 		"id": "4",
@@ -53,7 +53,7 @@
 			"Mansions",
 			"STI's"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "5",
@@ -67,7 +67,7 @@
 			"Haggis",
 			"Cricket"
 		],
-		"card_type": "expansion_2"
+		"card_type": "default"
 	},
 	{
 		"id": "6",
@@ -81,7 +81,7 @@
 			"welfare",
 			"genocide"
 		],
-		"card_type": "expansion_1"
+		"card_type": "default"
 	},
 	{
 		"id": "7",
@@ -95,7 +95,7 @@
 			"Fax machines",
 			"Vibrators"
 		],
-		"card_type": "expansion_2"
+		"card_type": "default"
 	},
 	{
 		"id": "8",
@@ -109,7 +109,7 @@
 			"000000",
 			"Netflix & chill"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "9",
@@ -123,7 +123,7 @@
 			"Star wars",
 			"The witcher,? game of throwns memes?"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "10",
@@ -137,7 +137,7 @@
 			"Christmas trees",
 			"Crussades"
 		],
-		"card_type": "expansion_1"
+		"card_type": "default"
 	},
 	{
 		"id": "11",
@@ -151,7 +151,7 @@
 			"Medical debt",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "12",
@@ -165,7 +165,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "13",
@@ -179,7 +179,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "14",
@@ -193,7 +193,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "15",
@@ -222,7 +222,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "17",
@@ -236,7 +236,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	},
 	{
 		"id": "18",
@@ -250,7 +250,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	},
 	{
 		"id": "19",
@@ -264,7 +264,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "20",
@@ -278,7 +278,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "21",
@@ -292,6 +292,6 @@
 			"000",
 			"000"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	}
 ]
