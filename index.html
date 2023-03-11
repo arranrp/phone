@@ -1,399 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <meta name="theme-color" content="#fafafa">
-  <script src="https://unpkg.com/alpinejs" defer></script>
-</head>
-
-<body>
-  <div x-data="cardGame" class="container">
-    <header>
-      <template x-if="gameOver">
-        <div style="display: contents;">
-          <p>You have finished your journey!</p>
-          <button @click="restartGame()" class="button-30">Restart</button>
+  <head>
+    <meta charset="utf-8" />
+    <title>Working Title</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#fafafa" />
+    <script src="https://unpkg.com/alpinejs" defer></script>
+  </head>
+  <body>
+    <div
+      x-data="cardGame"
+      x-init="await fetchCardsAndStartGame()"
+      class="container"
+    >
+      <template x-if="isFetchingCards">
+        <p>Please wait...</p>
+      </template>
+      <template x-if="!isFetchingCards">
+        <div style="display: contents">
+          <template x-if="fetchErrorOccurred">
+            <div style="display: contents">
+              <p>Something went wrong while fetching cards.</p>
+              <button @click="await fetchCardsAndStartGame()" class="button-30">
+                Retry
+              </button>
+            </div>
+          </template>
+          <template x-if="!fetchErrorOccurred">
+            <div style="display: contents">
+              <header>
+                <template x-if="gameOver">
+                  <div style="display: contents">
+                    <p>You have finished your journey!</p>
+                    <button @click="restartGame()" class="button-30">
+                      Restart
+                    </button>
+                  </div>
+                </template>
+                <template x-if="!gameOver">
+                  <div style="display: contents">
+                    <p>In my dimension we don't have a word for...</p>
+                    <p>
+                      Remaining cards:
+                      <span x-text="currentGameTally.length"></span>
+                    </p>
+                    <button @click="pickNextCardOrFinish()" class="button-30">
+                      Jump
+                    </button>
+                  </div>
+                </template>
+              </header>
+              <main>
+                <template x-if="!gameOver">
+                  <section class="card">
+                    <h1 x-text="currentCard.card_name"></h1>
+                    <p x-text="currentCard.card_description"></p>
+                    <ol>
+                      <template x-for="entry in currentCard.card_entries">
+                        <li x-text="entry"></li>
+                      </template>
+                    </ol>
+                  </section>
+                </template>
+                <div>
+                  <p>
+                    You are a traveler from another earth in another dimesion.
+                    You've seen many strange things on your visit and you don't
+                    have words for them. How do you describe them to you friend
+                    from this strange new world.
+                  </p>
+                  <p>
+                    On your turn you take a card on which there are six options
+                    to pick from you must choose one and try and describe it to
+                    your friend
+                  </p>
+                  <p>a round could go as follows</p>
+                  <p>
+                    Player one takes a card and picks the option
+                    <strong>beaver</strong>
+                  </p>
+                  <p>Player one:<q>It's an animal</q></p>
+                  <p>Player two:<q>a dog?</q></p>
+                  <p>Player one:<q>no, it likes to swim</q></p>
+                  <p>Player two:<q>a fish?</q></p>
+                  <p>Player one:<q>no, it has legs</q></p>
+                  <p>Player two:<q>a octopus?</q></p>
+                  <p>Player one:<q>no, it lives on land</q></p>
+                  <p>Player two:<q>a penguin?</q></p>
+                  <p>Player one:<q>no, it's furry</q></p>
+                  <p>Player two:<q>an otter?</q></p>
+                  <p>Player one:<q>no, it's fatter</q></p>
+                  <p>Player two:<q>a beaver?</q></p>
+                  <p>Player one:<q>Yes</q></p>
+                </div>
+              </main>
+            </div>
+          </template>
         </div>
       </template>
-      <template x-if="!gameOver">
-        <div style="display: contents;">
-          <p>In my dimension we don't have are word for...</p>
-          <p>Remaining cards: <span x-text="deck.length"></span></p>
-          <button @click="pickAnotherCard()" class="button-30">Jump</button>
-        </div>
-      </template>
-      
-    </header>
-    <main>
-      <template x-if="!gameOver">
-        <section class="card">
-          <h1 x-text="currentCard.card_name"></h1>  
-          <p x-text="currentCard.card_description"></p>
-          <ol>
-            <template x-for="entry in currentCard.card_entries">
-              <li x-text="entry"></li>
-            </template>
-          </ol>
-        </section>
-      </template>
-      <div>
-        <p>You are a traveler from another earth in another dimesion. You've seen many strange things on your visit and you don't have words for them. How do you describe them to you friend from this strange new world.</p>
-        <p>On your turn you take a card on which there are six options to pick from you must choose one and try and describe it to your friend</p>
-        <p>a round could go as follows</p>
-        <p>Player one takes a card and picks the option <strong>beaver</strong></p>
-        <p>Player one:<q>It's an animal</q></p>
-        <p>Player two:<q>a dog?</q></p>
-        <p>Player one:<q>no, it likes to swim</q></p>
-        <p>Player two:<q>a fish?</q></p>
-        <p>Player one:<q>no, it has legs</q></p>
-        <p>Player two:<q>a octopus?</q></p>
-        <p>Player one:<q>no, it lives on land</q></p>
-        <p>Player two:<q>a penguin?</q></p>
-        <p>Player one:<q>no, it's furry</q></p>
-        <p>Player two:<q>an otter?</q></p>
-        <p>Player one:<q>no, it's fatter</q></p>
-        <p>Player two:<q>a beaver?</q></p>
-        <p>Player one:<q>Yes</q></p>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    function randomNumber(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-    }
-
-    var sourceData = JSON.parse(`[{
-	"id":"1",
-	"card_name":"Earth 32",
-	"card_description":"Oligarchs rule over this world, with little room for joy or creativity incase they ferment radicalism and dissent.",
-	"card_entries":[
-		"Laughing",
-		"Smiling",
-		"Voting",
-		"Tea Total",
-		"Fireworks",
-		"FWB"
-	]
-},
-{
-	"id":"2",
-	"card_name":"The old world",
-	"card_description":"In the early 20th century the Black Hand fail to ignite the tinderbox of europe and a world war never happens. Many nations fail to industralise and technology in not spured on by massive global wars.",
-	"card_entries":[
-		"Pierogi?",
-		"Day light savings time",
-		"Pilates",
-		"Tea bags",
-		"Sanitary pads",
-		"Sun lamps"
-	]
-},
-{
-	"id":"3",
-	"card_name":"City1",
-	"card_description":"A century long war has left the world barren,with only a few self contained mega cities remaining.",
-	"card_entries":[
-		"Honey",
-		"Egg cups",
-		"Ice cream",
-		"Bats",
-		"Armadillos",
-		"Trade"
-	]
-},
-{
-	"id":"4",
-	"card_name":"IO",
-	"card_description":"A utopia",
-	"card_entries":[
-		"Gerrymandering",
-		"War",
-		"Air craft carriers",
-		"Crying",
-		"Mansions",
-		"STI's"
-	]
-},
-{
-	"id":"5",
-	"card_name":"Nova France",
-	"card_description":"Off the coast of Normandy  lies nothing but atlantic ocean until you reach the Americas. The French empire unapposed in the early modern period grew to be a world spanning empire. With only one nation on earth the only remain wars were civil wars and thus there was no space race.",
-	"card_entries":[
-		"Corgies",
-		"Cheddar",
-		"Marmite",
-		"Pasty",
-		"Haggis",
-		"Cricket"
-	]
-},
-{
-	"id":"6",
-	"card_name":"The Land",
-	"card_description":"Tribal settlements grew, but never felt the need for conquest. Loose federations of towns formed and some sprawled into cities, but no countries ever emerged. Most nomadic communites have survived to this day as there has been no external presures on them.",
-	"card_entries":[
-		"citizens",
-		"borders",
-		"refugees",
-		"passports",
-		"welfare",
-		"genocide"
-	]
-},
-{
-	"id":"7",
-	"card_name":"The Steam Empire",
-	"card_description":"The sccret sociaty of Luddites in the early 1800s grew from stregth to stregth, eventualy having great power and influence in goverments of the world. Wide sweeping laws were created to hold back the tide of automation throughout the world, limiting all machines to require at least two humans to operate.",
-	"card_entries":[
-		"Cars",
-		"Artificial intelligence",
-		"Phones",
-		"The internet",
-		"Fax machines",
-		"Vibrators"
-	]
-},
-{
-	"id":"8",
-	"card_name":"The Cold",
-	"card_description":"The cold war has dragged on for generations. The worlds R&D has been focused on war and innovations stopped making it to the consumer in the 1980s",
-	"card_entries":[
-		"Uber",
-		"Instagram",
-		"WIFI",
-		"NFTs",
-		"000000",
-		"Netflix & chill"
-	]
-},
-{
-	"id":"9",
-	"card_name":"The shimmering",
-	"card_description":"This is a world of humans and halflings, elfs and orc. There even used to be dragons but they were hunted to extinction in the late 80s",
-	"card_entries":[
-		"Dungens and Dragons",
-		"Lord of the rings",
-		"World of War Craft",
-		"Game of throwns",
-		"Star wars",
-		"The witcher,? game of throwns memes?"
-	]
-},
-{
-	"id":"10",
-	"card_name":"Earth Prime",
-	"card_description":"Ancient man look up at the all they saw was a ball that was bright and when it rain they just accepted today is wetter than yesterday. There was not mystry to be explained, it was just how the world was.",
-	"card_entries":[
-		"Marriage",
-		"Grave yards",
-		"Baptisms",
-		"Witch hunts",
-		"Christmas trees",
-		"Crussades"
-	]
-},
-{
-	"id":"11",
-	"card_name":"Card name",
-	"card_description":"No late stage capatalism",
-	"card_entries":[
-		"Deductibles",
-		"orthan crushing machine",
-		"Private prisions",
-		"Credit scores",
-		"Medical debt",
-		"card item"
-	]
-},
-{
-	"id":"12",
-	"card_name":"Card name",
-	"card_description":"No individulism",
-	"card_entries":[
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"13",
-	"card_name":"Card name",
-	"card_description":"prohabition puratanical",
-	"card_entries":[
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"14",
-	"card_name":"Card name",
-	"card_description":"no ozone/melted iccecaps",
-	"card_entries":[
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"15",
-	"card_name":"Earth 1816",
-	"card_description":"In the year of 1816 Europe had a perfectly normal summer. Mary Shelley, Lord Byron and John William Polidori all enjoyed their holiday spending time in nature just outside of Geneva.",
-  "card_explanation":"The 1815 eruption of Mount Tambora beyond it's initial destruction had huge reverberating effects for years to come, starting with what is known as the year without a summer in 1816.",
-	"card_entries":[
-		"Space Balls",
-		"Twilight novels",
-		"Bicycles",
-		"Impressionism",
-		"Germ theory",
-		"Akira"
-	]
-},
-{
-	"id":"16",
-	"card_name":"the expanse - via space race pushing to mars early",
-	"card_description":"Card description",
-	"card_entries":[
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"17",
-	"card_name":"Card name",
-	"card_description":"no killing",
-	"card_entries":[
-		"Bacon",
-		"Hunting",
-		"Spear fishing",
-		"CSI: Miami",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"18",
-	"card_name":"Card name",
-	"card_description":"ghoats",
-	"card_entries":[
-		"privacy",
-		"murder",
-		"card item",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"19",
-	"card_name":"Card name",
-	"card_description":"people die young",
-	"card_entries":[
-		"pensions",
-		"care homes",
-		"retirement resorts",
-		"card item",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"20",
-	"card_name":"Card name",
-	"card_description":"The black death never ragenged the world, causing huge demographic shift. The fuedal system has stayed strong for hundreds of years.",
-	"card_entries":[
-		"Tourism",
-		"Elections",
-		"Renaissance",
-		"Reformation",
-		"card item",
-		"card item"
-	]
-},
-{
-	"id":"21",
-	"card_name":"Uncanny",
-	"card_description":"At first glance this could be earth, but it's just a little off.",
-	"card_entries":[
-		"Beards",
-		"000",
-		"000",
-		"000",
-		"000",
-		"000"
-	]
-}
-]`)
-    var firstRandomCard = sourceData[randomNumber(0, sourceData.length - 1)]
-
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('cardGame', () => ({
-        deck: sourceData.filter((card) => card.id !== firstRandomCard.id),
-        currentCard: firstRandomCard,
-        gameOver: false,
-        pickAnotherCard() {
-          if (this.deck.length > 0) {
-            this.currentCard = this.deck[randomNumber(0, this.deck.length - 1)]
-            this.deck = this.deck.filter((card) => card.id !== this.currentCard.id)
-          } else {
-            this.gameOver = true;
-          }
-        },
-        restartGame() {
-          this.currentCard = sourceData[randomNumber(0, this.deck.length - 1)]
-          this.deck = sourceData.filter((card) => card.id !== this.currentCard.id)
-          this.gameOver = false;
-        }
-      }))
-    })
-  </script>
-  
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-
+    </div>
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
