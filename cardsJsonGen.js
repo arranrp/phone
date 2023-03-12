@@ -11,8 +11,8 @@ const cardsFileTextContent = fs.readFileSync('./cards.json', 'utf-8');
 const cards = JSON.parse(cardsFileTextContent);
 const tags = ['default', 'expansion_1', 'expansion_2'];
 
-for (const card of cards) {
-  card.card_type = tags[randomNumber(0, tags.length - 1)];
+for (const [index, card] of cards.entries()) {
+  card.card_type = tags[index < 16 ? 0 : randomNumber(1, tags.length - 1)];
 }
 
 fs.writeFileSync('./cards.json', JSON.stringify(cards, null, '\t'));

@@ -23,12 +23,20 @@ document.addEventListener('alpine:init', () => {
         this.isFetchingCards = true;
         this.fetchErrorOccurred = false;
 
-        const cards = await (await fetch('./cards.json')).json();
+        const allCards = await (await fetch('./cards.json')).json();
+        const defaultCards = allCards.filter(
+          ({ card_type }) => card_type === 'default'
+        );
+
+        console.log(defaultCards);
+
         const tally = [];
         const tallySize = this.$router.query.mode === 'quick' ? 8 : 16;
 
         for (let i = 0; i <= tallySize; i++) {
-          tally.push(...cards.splice(randomNumber(0, cards.length - 1), 1));
+          tally.push(
+            ...defaultCards.splice(randomNumber(0, defaultCards.length - 1), 1)
+          );
         }
 
         this.globalTally = tally;
