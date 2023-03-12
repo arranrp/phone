@@ -53,7 +53,7 @@
 			"Mansions",
 			"STI's"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "5",
@@ -109,7 +109,7 @@
 			"000000",
 			"Netflix & chill"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "9",
@@ -123,7 +123,7 @@
 			"Star wars",
 			"The witcher,? game of throwns memes?"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "10",
@@ -151,7 +151,7 @@
 			"Medical debt",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "12",
@@ -165,7 +165,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "13",
@@ -179,7 +179,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "14",
@@ -193,7 +193,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "15",
@@ -222,7 +222,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "17",
@@ -236,7 +236,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "18",
@@ -250,7 +250,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	},
 	{
 		"id": "19",
@@ -264,7 +264,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "20",
@@ -278,7 +278,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "21",
@@ -292,6 +292,6 @@
 			"000",
 			"000"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	}
 ]
