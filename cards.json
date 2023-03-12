@@ -7,11 +7,11 @@
 			"Laughing",
 			"Smiling",
 			"Voting",
-			"Tea Total",
+			"Tea total",
 			"Fireworks",
 			"FWB"
 		],
-		"card_type": ""
+		"card_type": "default"
 	},
 	{
 		"id": "2",
