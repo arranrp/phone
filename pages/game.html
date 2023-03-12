@@ -1,0 +1,52 @@
+<div
+  x-data="cardGame"
+  x-init="await fetchCardsAndStartGame()"
+  class="container"
+>
+  <template x-if="isFetchingCards">
+    <p>Please wait...</p>
+  </template>
+  <template x-if="!isFetchingCards">
+    <div style="display: contents">
+      <template x-if="fetchErrorOccurred">
+        <div style="display: contents">
+          <p>Something went wrong while fetching cards.</p>
+          <button @click="await fetchCardsAndStartGame()" class="button-30">
+            Retry
+          </button>
+        </div>
+      </template>
+      <template x-if="!fetchErrorOccurred">
+        <div style="display: contents">
+          <template x-if="gameOver">
+            <div style="display: contents">
+              <p>You have finished your journey!</p>
+              <button @click="restartGame()" class="button-30">Restart</button>
+            </div>
+          </template>
+          <template x-if="!gameOver">
+            <div style="display: contents">
+              <p>In my dimension we don't have a word for...</p>
+              <p>
+                Remaining cards:
+                <span x-text="currentGameTally.length"></span>
+              </p>
+              <button @click="pickNextCardOrFinish()" class="button-30">
+                Jump
+              </button>
+              <section class="card">
+                <h1 x-text="currentCard.card_name"></h1>
+                <p x-text="currentCard.card_description"></p>
+                <ol>
+                  <template x-for="entry in currentCard.card_entries">
+                    <li x-text="entry"></li>
+                  </template>
+                </ol>
+              </section>
+            </div>
+          </template>
+        </div>
+      </template>
+    </div>
+  </template>
+</div>

@@ -1,7 +1,6 @@
 function randomNumber(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
@@ -25,10 +24,14 @@ document.addEventListener('alpine:init', () => {
         this.fetchErrorOccurred = false;
 
         const cards = await (await fetch('./cards.json')).json();
+        const tally = [];
+        const tallySize = this.$router.query.mode === 'quick' ? 8 : 16;
 
-        this.globalTally = cards.filter(
-          ({ card_type }) => card_type === 'default'
-        );
+        for (let i = 0; i <= tallySize; i++) {
+          tally.push(...cards.splice(randomNumber(0, cards.length - 1), 1));
+        }
+
+        this.globalTally = tally;
         this.pickRandomCardFrom(this.globalTally);
       } catch (error) {
         console.error(error);

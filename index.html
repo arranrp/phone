@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Working Title</title>
+    <title>Untitled Card Game</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="Untitled Card Game" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
@@ -20,102 +20,39 @@
       rel="stylesheet"
     />
     <meta name="theme-color" content="#fafafa" />
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script
+      src="https://unpkg.com/@shaun/alpinejs-router@1.2.13/dist/cdn.min.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/alpinejs@3.12.0/dist/cdn.min.js"
+      defer
+    ></script>
   </head>
-  <body>
-    <div
-      x-data="cardGame"
-      x-init="await fetchCardsAndStartGame()"
-      class="container"
-    >
-      <template x-if="isFetchingCards">
-        <p>Please wait...</p>
-      </template>
-      <template x-if="!isFetchingCards">
-        <div style="display: contents">
-          <template x-if="fetchErrorOccurred">
-            <div style="display: contents">
-              <p>Something went wrong while fetching cards.</p>
-              <button @click="await fetchCardsAndStartGame()" class="button-30">
-                Retry
-              </button>
-            </div>
-          </template>
-          <template x-if="!fetchErrorOccurred">
-            <div style="display: contents">
-              <header>
-                <template x-if="gameOver">
-                  <div style="display: contents">
-                    <p>You have finished your journey!</p>
-                    <button @click="restartGame()" class="button-30">
-                      Restart
-                    </button>
-                  </div>
-                </template>
-                <template x-if="!gameOver">
-                  <div style="display: contents">
-                    <p>In my dimension we don't have a word for...</p>
-                    <p>
-                      Remaining cards:
-                      <span x-text="currentGameTally.length"></span>
-                    </p>
-                    <button @click="pickNextCardOrFinish()" class="button-30">
-                      Jump
-                    </button>
-                  </div>
-                </template>
-              </header>
-              <main>
-                <template x-if="!gameOver">
-                  <section class="card">
-                    <h1 x-text="currentCard.card_name"></h1>
-                    <p x-text="currentCard.card_description"></p>
-                    <ol>
-                      <template x-for="entry in currentCard.card_entries">
-                        <li x-text="entry"></li>
-                      </template>
-                    </ol>
-                  </section>
-                </template>
-                <div>
-                  <p>
-                    You are a traveler from another earth in another dimesion.
-                    You've seen many strange things on your visit and you don't
-                    have words for them. How do you describe them to you friend
-                    from this strange new world.
-                  </p>
-                  <p>
-                    On your turn you take a card on which there are six options
-                    to pick from you must choose one and try and describe it to
-                    your friend
-                  </p>
-                  <p>a round could go as follows</p>
-                  <p>
-                    Player one takes a card and picks the option
-                    <strong>beaver</strong>
-                  </p>
-                  <p>Player one:<q>It's an animal</q></p>
-                  <p>Player two:<q>a dog?</q></p>
-                  <p>Player one:<q>no, it likes to swim</q></p>
-                  <p>Player two:<q>a fish?</q></p>
-                  <p>Player one:<q>no, it has legs</q></p>
-                  <p>Player two:<q>a octopus?</q></p>
-                  <p>Player one:<q>no, it lives on land</q></p>
-                  <p>Player two:<q>a penguin?</q></p>
-                  <p>Player one:<q>no, it's furry</q></p>
-                  <p>Player two:<q>an otter?</q></p>
-                  <p>Player one:<q>no, it's fatter</q></p>
-                  <p>Player two:<q>a beaver?</q></p>
-                  <p>Player one:<q>Yes</q></p>
-                </div>
-              </main>
-            </div>
-          </template>
-        </div>
-      </template>
-    </div>
-    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="js/plugins.js"></script>
+  <body x-data x-init="$router.config({ mode: 'hash' })">
+    <h1>Untitled Card Game</h1>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a x-link href="/">Home</a>
+          </li>
+          <li>
+            <a x-link href="/rules">Rules</a>
+          </li>
+          <li>
+            <a x-link href="/settings">Settings</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <template x-route="" template.preload="/pages/home.html"></template>
+      <template x-route="/" template.preload="/pages/home.html"></template>
+      <template x-route="/rules" template="/pages/rules.html"></template>
+      <template x-route="/settings" template="/pages/settings.html"></template>
+      <template x-route="/game" template="/pages/game.html"></template>
+    </main>
     <script src="js/main.js"></script>
   </body>
 </html>
