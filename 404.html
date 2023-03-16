@@ -1,62 +1,50 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
-    }
-
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-    }
-
-    body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
-    }
-
-    h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
-    }
-
-    p {
-      margin: 0 auto;
-      width: 280px;
-    }
-
-    @media only screen and (max-width: 280px) {
-
-      body,
-      p {
-        width: 95%;
-      }
-
-      h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
-      }
-
-    }
-  </style>
-</head>
-
-<body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
-</body>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Untitled Card Game</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Untitled Card Game" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#fafafa" />
+    <script
+      src="https://unpkg.com/@shaun/alpinejs-router@1.2.13/dist/cdn.min.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/alpinejs@3.12.0/dist/cdn.min.js"
+      defer
+    ></script>
+  </head>
+  <body x-data>
+    <h1>Untitled Card Game</h1>
+    <header>
+      <nav>
+        <a x-link href="/" class="button-30">Game</a>
+        <a x-link href="/rules" class="button-30">Rules</a>
+        <a x-link href="/settings" class="button-30">Settings</a>
+      </nav>
+    </header>
+    <main>
+      <template x-route="" template.preload="./pages/home.html"></template>
+      <template x-route="/" template.preload="./pages/home.html"></template>
+      <template x-route="/rules" template="./pages/rules.html"></template>
+      <template x-route="/settings" template="./pages/settings.html"></template>
+      <template x-route="/game" template="./pages/game.html"></template>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->

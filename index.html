@@ -9,25 +9,19 @@
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="icon.png" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <meta name="theme-color" content="#fafafa" />
-    <script
-      src="https://unpkg.com/@shaun/alpinejs-router@1.2.13/dist/cdn.min.js"
-      defer
-    ></script>
-    <script
-      src="https://unpkg.com/alpinejs@3.12.0/dist/cdn.min.js"
-      defer
-    ></script>
+    <meta name="theme-color" content="#faead6" />
+    <script src="/js/lib/router.js" defer></script>
+    <script src="/js/lib/alpine.js" defer></script>
   </head>
   <body x-data>
     <div class="grid">
@@ -49,12 +43,12 @@
       </nav>
     </header>
     <main>
-      <template x-route="" template.preload="./pages/home.html"></template>
-      <template x-route="/" template.preload="./pages/home.html"></template>
-      <template x-route="/rules" template="./pages/rules.html"></template>
-      <template x-route="/settings" template="./pages/settings.html"></template>
-      <template x-route="/game" template="./pages/game.html"></template>
+      <template x-route="" template.preload="/pages/home.html"></template>
+      <template x-route="/" template.preload="/pages/home.html"></template>
+      <template x-route="/rules" template="/pages/rules.html"></template>
+      <template x-route="/settings" template="/pages/settings.html"></template>
+      <template x-route="/game" template="/pages/game.html"></template>
     </main>
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
