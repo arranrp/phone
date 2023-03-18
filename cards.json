@@ -3,6 +3,7 @@
 		"id": "1",
 		"card_name": "Earth 32",
 		"card_description": "Oligarchs rule over this world, with little room for joy or creativity incase they ferment radicalism and dissent.",
+		"card_explanation": "",
 		"card_entries": [
 			"Laughing",
 			"Smiling",
@@ -16,7 +17,8 @@
 	{
 		"id": "2",
 		"card_name": "The old world",
-		"card_description": "In the early 20th century the Black Hand fail to ignite the tinderbox of europe and a world war never happens. Many nations fail to industralise and technology in not spured on by massive global wars.",
+		"card_description": "In the early 20th century the Black Hand fail to ignite the tinderbox of europe and a world war never happens. Many nations fail to industrialise and technology in not spured on by massive global wars.",
+		"card_explanation": "",
 		"card_entries": [
 			"Pierogi",
 			"Day light savings time",
@@ -31,6 +33,7 @@
 		"id": "3",
 		"card_name": "City1",
 		"card_description": "A century long war has left the world barren,with only a few self contained mega cities remaining.",
+		"card_explanation": "",
 		"card_entries": [
 			"Honey",
 			"Egg cups",
@@ -45,6 +48,7 @@
 		"id": "4",
 		"card_name": "IO",
 		"card_description": "A utopia",
+		"card_explanation": "",
 		"card_entries": [
 			"Gerrymandering",
 			"War",
@@ -53,14 +57,15 @@
 			"Mansions",
 			"STI's"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "5",
 		"card_name": "Nova France",
-		"card_description": "Off the coast of Normandy  lies nothing but atlantic ocean until you reach the Americas. The French empire unapposed in the early modern period grew to be a world spanning empire. With only one nation on earth the only remain wars were civil wars and thus there was no space race.",
+		"card_description": "Off the coast of Normandy  lies nothing but atlantic ocean until you reach the Americas. The French empire unopposed in the early modern period grew to be a world spanning empire. With only one nation on earth the only remain wars were civil wars and thus there was no space race.",
+		"card_explanation": "",
 		"card_entries": [
-			"Corgies",
+			"corgi's",
 			"Cheddar",
 			"Marmite",
 			"Pasty",
@@ -72,21 +77,23 @@
 	{
 		"id": "6",
 		"card_name": "The Land",
-		"card_description": "Tribal settlements grew, but never felt the need for conquest. Loose federations of towns formed and some sprawled into cities, but no countries ever emerged. Most nomadic communites have survived to this day as there has been no external presures on them.",
+		"card_description": "Tribal settlements grew, but never felt the need for conquest. Loose federations of towns formed and some sprawled into cities, but no countries ever emerged. Most nomadic communities have survived to this day as there has been no external pressures on them.",
+		"card_explanation": "",
 		"card_entries": [
-			"citizens",
-			"borders",
-			"refugees",
-			"passports",
-			"welfare",
-			"genocide"
+			"Citizens",
+			"Borders",
+			"Refugees",
+			"Passports",
+			"Welfare",
+			"Genocide"
 		],
 		"card_type": "default"
 	},
 	{
 		"id": "7",
 		"card_name": "The Steam Empire",
-		"card_description": "The sccret sociaty of Luddites in the early 1800s grew from stregth to stregth, eventualy having great power and influence in goverments of the world. Wide sweeping laws were created to hold back the tide of automation throughout the world, limiting all machines to require at least two humans to operate.",
+		"card_description": "The secret society of Luddites in the early 1800s grew from strength to strength, eventually having great power and influence in government's of the world. Wide sweeping laws were created to hold back the tide of automation throughout the world, limiting all machines to require at least two humans to operate.",
+		"card_explanation": "",
 		"card_entries": [
 			"Cars",
 			"Artificial intelligence",
@@ -100,7 +107,8 @@
 	{
 		"id": "8",
 		"card_name": "The Cold",
-		"card_description": "The cold war has dragged on for generations. The worlds R&D has been focused on war and innovations stopped making it to the consumer in the 1980s",
+		"card_description": "The cold war has dragged on for generations. The worlds R&D has been focused on war and innovations stopped making it to the consumer in the 1980s - no cern and no tim berners lea",
+		"card_explanation": "",
 		"card_entries": [
 			"Uber",
 			"Instagram",
@@ -109,33 +117,35 @@
 			"000000",
 			"Netflix & chill"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "9",
 		"card_name": "The shimmering",
-		"card_description": "This is a world of humans and halflings, elfs and orc. There even used to be dragons but they were hunted to extinction in the late 80s",
+		"card_description": "This is a world of humans and halfling's, elf's and orc. There even used to be dragons but they were hunted to extinction in the late 80s",
+		"card_explanation": "",
 		"card_entries": [
-			"Dungens and Dragons",
+			"Dungeons and Dragons",
 			"Lord of the rings",
 			"World of War Craft",
-			"Game of throwns",
-			"Star wars",
-			"The witcher,? game of throwns memes?"
+			"Game of Thrones",
+			"Star Wars",
+			"LARPing"
 		],
 		"card_type": "default"
 	},
 	{
 		"id": "10",
 		"card_name": "Earth Prime",
-		"card_description": "Ancient man look up at the all they saw was a ball that was bright and when it rain they just accepted today is wetter than yesterday. There was not mystry to be explained, it was just how the world was.",
+		"card_description": "Ancient man look up at the all they saw was a ball that was bright and when it rain they just accepted today is wetter than yesterday. There was not mystery to be explained, it was just how the world was.",
+		"card_explanation": "",
 		"card_entries": [
 			"Marriage",
 			"Grave yards",
 			"Baptisms",
 			"Witch hunts",
 			"Christmas trees",
-			"Crussades"
+			"Crusades"
 		],
 		"card_type": "default"
 	},
@@ -143,6 +153,7 @@
 		"id": "11",
 		"card_name": "Card name",
 		"card_description": "No late stage capatalism",
+		"card_explanation": "",
 		"card_entries": [
 			"Deductibles",
 			"orthan crushing machine",
@@ -151,12 +162,13 @@
 			"Medical debt",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "12",
 		"card_name": "Card name",
 		"card_description": "No individulism",
+		"card_explanation": "",
 		"card_entries": [
 			"card item",
 			"card item",
@@ -165,12 +177,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "13",
 		"card_name": "Card name",
 		"card_description": "prohabition puratanical",
+		"card_explanation": "",
 		"card_entries": [
 			"card item",
 			"card item",
@@ -179,12 +192,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "14",
 		"card_name": "Card name",
 		"card_description": "no ozone/melted iccecaps",
+		"card_explanation": "",
 		"card_entries": [
 			"card item",
 			"card item",
@@ -193,7 +207,7 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "15",
@@ -214,6 +228,7 @@
 		"id": "16",
 		"card_name": "the expanse - via space race pushing to mars early",
 		"card_description": "Card description",
+		"card_explanation": "",
 		"card_entries": [
 			"card item",
 			"card item",
@@ -222,12 +237,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "default"
+		"card_type": ""
 	},
 	{
 		"id": "17",
 		"card_name": "Card name",
 		"card_description": "no killing",
+		"card_explanation": "",
 		"card_entries": [
 			"Bacon",
 			"Hunting",
@@ -236,12 +252,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "18",
 		"card_name": "Card name",
 		"card_description": "ghoats",
+		"card_explanation": "",
 		"card_entries": [
 			"privacy",
 			"murder",
@@ -250,12 +267,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	},
 	{
 		"id": "19",
 		"card_name": "Card name",
 		"card_description": "people die young",
+		"card_explanation": "",
 		"card_entries": [
 			"pensions",
 			"care homes",
@@ -264,12 +282,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "20",
 		"card_name": "Card name",
 		"card_description": "The black death never ragenged the world, causing huge demographic shift. The fuedal system has stayed strong for hundreds of years.",
+		"card_explanation": "",
 		"card_entries": [
 			"Tourism",
 			"Elections",
@@ -278,12 +297,13 @@
 			"card item",
 			"card item"
 		],
-		"card_type": "expansion_2"
+		"card_type": ""
 	},
 	{
 		"id": "21",
 		"card_name": "Uncanny",
 		"card_description": "At first glance this could be earth, but it's just a little off.",
+		"card_explanation": "",
 		"card_entries": [
 			"Beards",
 			"000",
@@ -292,6 +312,6 @@
 			"000",
 			"000"
 		],
-		"card_type": "expansion_1"
+		"card_type": ""
 	}
 ]
