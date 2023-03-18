@@ -1,7 +1,7 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      await navigator.serviceWorker.register('/sw.js');
+      await navigator.serviceWorker.register('/js/serviceWorker.js');
       console.log('Service Worker has been registered!');
     } catch (error) {
       console.error(error);
@@ -43,7 +43,9 @@ document.addEventListener('alpine:init', () => {
 
         for (let i = 0; i < tallySize; i++) {
           const randomCardIndex = randomNumber(0, defaultCards.length - 1);
-          tally.push(...defaultCards.splice(randomCardIndex, 1));
+          const [randomCard] = defaultCards.splice(randomCardIndex, 1);
+
+          tally.push(randomCard);
         }
 
         this.allCards = tally;
