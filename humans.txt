@@ -3,13 +3,10 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
+    Arran Ross-Patterson -- Design -- @arranrp
+    Maciej Pędzich -- Programming -- @maciejpedzich
 
 # TECHNOLOGY COLOPHON
 
-    CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    alpinejs -- https://github.com/alpinejs/alpine
+    alpinejs-router -- https://github.com/shaunlee/alpinejs-router
