@@ -1,7 +1,7 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      await navigator.serviceWorker.register('/sw.js');
+      await navigator.serviceWorker.register('/js/serviceWorker.js');
       console.log('Service Worker has been registered!');
     } catch (error) {
       console.error(error);
@@ -16,15 +16,15 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('cardGame', () => ({
     isFetchingCards: true,
     fetchErrorOccurred: false,
-    globalTally: [], // All available cards
-    currentGameTally: [], // Cards that are yet to be picked in this game
-    currentCard: null,
     gameOver: false,
+    allCards: [],
+    remainingCards: [],
+    currentCard: null,
     pickRandomCardFrom(tally) {
       const randomCardIndex = randomNumber(0, tally.length - 1);
 
       this.currentCard = tally[randomCardIndex];
-      this.currentGameTally = tally.filter(
+      this.remainingCards = tally.filter(
         ({ id }) => id !== this.currentCard.id
       );
     },
@@ -33,8 +33,8 @@ document.addEventListener('alpine:init', () => {
         this.isFetchingCards = true;
         this.fetchErrorOccurred = false;
 
-        const allCards = await (await fetch('/cards.json')).json();
-        const defaultCards = allCards.filter(
+        const cards = await (await fetch('/cards.json')).json();
+        const defaultCards = cards.filter(
           ({ card_type }) => card_type === 'default'
         );
 
@@ -43,11 +43,13 @@ document.addEventListener('alpine:init', () => {
 
         for (let i = 0; i < tallySize; i++) {
           const randomCardIndex = randomNumber(0, defaultCards.length - 1);
-          tally.push(...defaultCards.splice(randomCardIndex, 1));
+          const [randomCard] = defaultCards.splice(randomCardIndex, 1);
+
+          tally.push(randomCard);
         }
 
-        this.globalTally = tally;
-        this.pickRandomCardFrom(this.globalTally);
+        this.allCards = tally;
+        this.pickRandomCardFrom(this.allCards);
       } catch (error) {
         console.error(error);
         this.fetchErrorOccurred = true;
@@ -56,14 +58,14 @@ document.addEventListener('alpine:init', () => {
       }
     },
     pickNextCardOrFinish() {
-      if (this.currentGameTally.length > 0) {
-        this.pickRandomCardFrom(this.currentGameTally);
+      if (this.remainingCards.length > 0) {
+        this.pickRandomCardFrom(this.remainingCards);
       } else {
         this.gameOver = true;
       }
     },
     restartGame() {
-      this.pickRandomCardFrom(this.globalTally);
+      this.pickRandomCardFrom(this.allCards);
       this.gameOver = false;
     }
   }));
