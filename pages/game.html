@@ -1,14 +1,10 @@
-<div
-  x-data="cardGame"
-  x-init="await fetchCardsAndStartGame()"
-  class="container"
->
-  <template x-if="isFetchingCards">
+<div x-data="cardGame" class="container">
+  <template x-if="isFetchingCards || isInitialisingGameState">
     <p>Please wait...</p>
   </template>
-  <template x-if="!isFetchingCards">
+  <template x-if="!isFetchingCards && !isInitialisingGameState">
     <div style="display: contents">
-      <template x-if="fetchErrorOccurred">
+      <template x-if="cardsFetchErrorOccurred">
         <div style="display: contents">
           <p>Something went wrong while fetching cards.</p>
           <button @click="await fetchCardsAndStartGame()" class="button-30">
@@ -16,22 +12,31 @@
           </button>
         </div>
       </template>
-      <template x-if="!fetchErrorOccurred">
+      <template x-if="!cardsFetchErrorOccurred">
         <div style="display: contents">
-          <template x-if="gameOver">
+          <template x-if="gameState.isOver">
             <div style="display: contents">
               <p>You have finished your journey!</p>
-              <button @click="restartGame()" class="button-30">Restart</button>
+              <template x-if="isGameHost">
+                <button @click="restartGame()" class="button-30">
+                  Restart
+                </button>
+              </template>
             </div>
           </template>
-          <template x-if="!gameOver">
+          <template x-if="!gameState.isOver">
             <div style="display: contents">
+              <p>
+                Remaining cards
+                <strong x-text="gameState.remainingCards.length"></strong>
+              </p>
+              <p>Game ID: <strong x-text="$router.params.gameId"></strong></p>
               <p>In my dimension we don't have a word for...</p>
               <section class="card">
-                <h1 x-text="currentCard.card_name"></h1>
-                <p x-text="currentCard.card_description"></p>
+                <h1 x-text="gameState.currentCard.card_name"></h1>
+                <p x-text="gameState.currentCard.card_description"></p>
                 <ol>
-                  <template x-for="entry in currentCard.card_entries">
+                  <template x-for="entry in gameState.currentCard.card_entries">
                     <li x-text="entry"></li>
                   </template>
                 </ol>

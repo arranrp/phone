@@ -1,13 +1,40 @@
-<div style="display: contents">
+<div x-data="home" style="display: contents">
   <h2>Welcome!</h2>
   <p>You are a traveler from another earth in another dimesion.</p>
-  <p>You've seen many strange things on your visit and you don't have words for them.</p>
-  <p>How do you describe them to you friend from this strange new</p>world.
+  <p>
+    You've seen many strange things on your visit and you don't have words for
+    them.
   </p>
-  <a x-link href="/game?mode=quick" class="button-30">Quick game (8 cards)</a>
-  <a x-link href="/game?mode=long" class="button-30">Long game (16 cards)</a>
+  <p>How do you describe them to you friend from this strange new world?</p>
+  <label for="accessKey">Access Key</label>
+  <input
+    id="accessKey"
+    name="accessKey"
+    type="text"
+    required
+    x-model="accessKey"
+  />
+  <h2>Create a game</h2>
+  <button class="button-30" @click="createGame('quick')">
+    Quick game (8 cards)
+  </button>
+  <button class="button-30" @click="createGame('long')">
+    Long game (16 cards)
+  </button>
+  <h2>Join a game</h2>
+  <form @submit.prevent="joinGame()">
+    <label for="gameId">Game ID</label>
+    <input
+      id="gameId"
+      name="gameId"
+      type="text"
+      required
+      x-model="idOfGameToJoin"
+    />
+    <button type="submit">Join</button>
+  </form>
   <footer>
     <p>Designed by Arran</p>
-    <p>Developed by Arran &amp; Maciej with community contributions </p>
+    <p>Developed by Arran &amp; Maciej with community contributions</p>
   </footer>
 </div>
