@@ -40,8 +40,9 @@
       <template x-route="/" template.preload="/pages/home.html"></template>
       <template x-route="/rules" template="/pages/rules.html"></template>
       <template x-route="/settings" template="/pages/settings.html"></template>
-      <template x-route="/game" template="/pages/game.html"></template>
+      <template x-route="/game/:gameId" template="/pages/game.html"></template>
     </main>
+    <script src="/js/lib/peer.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>
